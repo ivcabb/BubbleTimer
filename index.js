@@ -69,10 +69,14 @@ function togglePause() {
 }
 
 function cancelCountdown() {
-  const popSound = document.getElementById("popSound");
-  popSound.pause();
-  popSound.currentTime = 0;
-  popSound.play();
+  if (timeLeft > 0) {
+    const popSound = document.getElementById("popSound");
+    popSound.pause();
+    popSound.currentTime = 0;
+    popSound.play().catch(e => {
+      console.warn("Sound error");
+    });
+  }
 
   isRunning = false;
   stopBubbles();
