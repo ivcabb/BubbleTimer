@@ -155,12 +155,12 @@ function popBubbles() {
     splash.style.width = width * scaleFactor + "px";
     splash.style.height = height * scaleFactor + "px";
     splash.style.pointerEvents = "none";
-    splash.style.zIndex = "0";
+    splash.style.zIndex = "100";
     splash.style.transform = "scale(1.0)";
     splash.style.opacity = "0";
     splash.style.transition = "transform 0.15s ease, opacity 0.2s";
 
-    document.body.appendChild(splash);
+    document.getElementById("bubbleContainer").appendChild(splash);
 
     requestAnimationFrame(() => {
       splash.style.transform = "scale(1.2)";
